@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To My Sweetest Honeybee 🐝🤍</title>
+  
+  <!-- Romantic Handwritten Google Font (Applied Uniformly) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            handwritten: ['"Caveat"', 'cursive', 'sans-serif'],
+          },
+          colors: {
+            parchment: '#fffcf9',
+            blush: {
+              50: '#fffafb',
+              100: '#fff0f3',
+              200: '#ffe4e9',
+              300: '#fcc7d1',
+              400: '#f89ab0',
+              500: '#f06286',
+              600: '#db3967',
+              700: '#bc224e',
+              800: '#8c1f3d',
+              900: '#5c1024',
+            },
+            honey: {
+              50: '#fffdf5',
+              100: '#fff9e6',
+              200: '#ffefb8',
+              300: '#fce388',
+              400: '#f7cf53',
+              500: '#e5b220',
+              600: '#c59210',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Force handwritten font everywhere across all elements */
+    *, html, body, button, input, p, span, h1, h2, div {
+      font-family: 'Caveat', cursive, sans-serif !important;
+      letter-spacing: 0.025em;
+    }
+
+    body {
+      background: radial-gradient(circle at 50% 15%, #fffdf8 0%, #fff0f3 40%, #fedce5 80%, #fecfda 100%);
+      min-height: 100vh;
+      overflow-x: hidden;
+      user-select: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    /* Ambient floating honeybee animation */
+    .floating-bee {
+      animation: floatBee 4.5s ease-in-out infinite alternate;
+      display: inline-block;
+    }
+
+    @keyframes floatBee {
+      0% { transform: translateY(0px) rotate(-6deg); }
+      50% { transform: translateY(-12px) rotate(8deg) scale(1.12); }
+      100% { transform: translateY(4px) rotate(-3deg); }
+    }
+
+    /* Soft breathing card glow */
+    .card-glow {
+      animation: softGlow 4s ease-in-out infinite alternate;
+    }
+
+    @keyframes softGlow {
+      0% { box-shadow: 0 12px 35px -8px rgba(240, 98, 134, 0.22); }
+      100% { box-shadow: 0 20px 55px 6px rgba(240, 98, 134, 0.38); }
+    }
+
+    /* Floating background emojis */
+    .particle {
+      position: fixed;
+      pointer-events: none;
+      z-index: 1;
+      opacity: 0.85;
+      animation: driftUp linear infinite;
+    }
+
+    @keyframes driftUp {
+      0% {
+        transform: translateY(105vh) translateX(0) rotate(0deg);
+        opacity: 0;
+      }
+      15% { opacity: 0.85; }
+      85% { opacity: 0.85; }
+      100% {
+        transform: translateY(-15vh) translateX(var(--drift-x, 40px)) rotate(var(--rot, 360deg));
+        opacity: 0;
+      }
+    }
+
+    /* Interactive click/tap heart burst */
+    .click-heart {
+      position: fixed;
+      pointer-events: none;
+      z-index: 9999;
+      animation: heartBurst 1.1s cubic-bezier(0.2, 0.8, 0.3, 1) forwards;
+    }
+
+    @keyframes heartBurst {
+      0% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(0.3) rotate(0deg);
+      }
+      100% {
+        opacity: 0;
+        transform: translate(calc(-50% + var(--tx)), calc(-50% + var(--ty))) scale(1.6) rotate(var(--tr));
+      }
+    }
+
+    /* Cozy vintage paper envelope feel */
+    .vintage-paper {
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.96) 0%, rgba(255, 252, 248, 0.94) 100%);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 225, 232, 0.85);
+      position: relative;
+    }
+
+    .vintage-paper::before {
+      content: "";
+      position: absolute;
+      inset: 8px;
+      border: 1.5px dashed rgba(240, 98, 134, 0.28);
+      border-radius: 20px;
+      pointer-events: none;
+    }
+
+    /* Smooth runaway button animation */
+    #runaway-btn {
+      transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+      will-change: transform;
+    }
+  </style>
+</head>
+
+<body class="text-stone-700 antialiased selection:bg-blush-200 selection:text-blush-900 flex flex-col items-center justify-between min-h-screen p-4 sm:p-6 md:p-8 relative">
+
+  <!-- Background Floating Ambient Particles -->
+  <div id="particle-container" class="fixed inset-0 pointer-events-none z-0 overflow-hidden"></div>
+
+  <!-- Main Letter Container -->
+  <main class="w-full max-w-2xl z-10 flex flex-col items-center my-auto pt-4">
+    
+    <!-- Top Aesthetic Header -->
+    <div class="text-center mb-6">
+      <div class="inline-flex items-center justify-center gap-2 mb-2 px-5 py-1.5 rounded-full bg-white/85 border border-blush-200 shadow-sm text-blush-600 text-xl font-bold">
+        <span>🍓</span> a sincere apology from the bottom of my heart <span>🍓</span>
+      </div>
+      
+      <h1 class="text-5xl sm:text-7xl text-blush-900 font-bold tracking-wide mt-2">
+        To My Sweet Honeybee <span class="floating-bee">🐝</span>
+      </h1>
+      
+      <p class="text-2xl sm:text-3xl text-blush-500 font-semibold mt-1">
+        I am so deeply sorry, my love... please listen to my heart 🤍
+      </p>
+    </div>
+
+    <!-- Letter Paper Card -->
+    <div class="w-full vintage-paper rounded-3xl p-7 sm:p-12 shadow-2xl card-glow relative transition-all duration-300">
+      
+      <!-- Top Cute Badge -->
+      <div class="absolute -top-4 right-6 bg-gradient-to-r from-honey-400 via-blush-400 to-rose-400 text-white px-5 py-1 rounded-full text-lg sm:text-xl font-bold shadow-md flex items-center gap-1.5">
+        <span>✨</span> Just for you, forever <span>✨</span>
+      </div>
+
+      <!-- Wax Seal Stamp -->
+      <div class="flex justify-center -mt-2 mb-6">
+        <div class="w-16 h-16 rounded-full bg-gradient-to-tr from-blush-200 via-rose-100 to-honey-100 flex items-center justify-center shadow-inner border border-white text-3xl">
+          💌
+        </div>
+      </div>
+
+      <!-- The Handwritten Letter Content -->
+      <article class="space-y-6 text-stone-700 text-2xl sm:text-3xl font-semibold leading-relaxed">
+        <p class="text-4xl sm:text-5xl text-blush-600 font-bold">
+          To my dearest little honeybee 🐝,
+        </p>
+        
+        <p>
+          I’ve been sitting here with such a heavy heart 🥺, wishing more than anything that I could take back the clumsy, thoughtless words that slipped out of my mouth 🥲. Knowing that a silly, reckless joke made you feel small—or made you wonder even for a single second if I’m just like every other guy who only cares about the surface—truly shatters me 🫠.
+        </p>
+
+        <p>
+          You are so much more to me than words could ever capture 🍓. If my life were a quiet, stormy morning, you would be the softest golden sunlight that breaks through the clouds and warms everything it touches 🧚‍♀️. You aren’t just a passing spark; you are my cozy sanctuary, my favorite comfort like a purring little kitten on a rainy day 🐈, and the gentlest home my heart has ever known 🐣.
+        </p>
+
+        <p>
+          I didn’t fall in love with you for anything fleeting. I fell in love with the sweet music of your laugh, the way your eyes light up, the quiet brilliance of your mind, and all the million delicate stars living inside your soul 🥺✨. What we have is sacred to me, and reducing our warmth to a careless punchline was the stupidest thing I could have done 🫠.
+        </p>
+
+        <p>
+          I would step between you and the whole wide world, give up everything, and honestly lay down my life before I’d ever intentionally make you doubt how deeply, purely, and endlessly I cherish you 🐝❤️. You are the sweetest poetry in my ordinary days.
+        </p>
+
+        <p>
+          Take all the time you need to be upset with me—I deserve every bit of your quietness 🥲. But please don’t ever doubt my intentions, and never forget that you are my entire universe 🐣🍓. I am so, so sorry, my little honeybee 🥺🐝.
+        </p>
+
+        <p class="text-4xl sm:text-5xl text-blush-600 font-bold pt-2">
+          Forever and softly yours 🧚‍♀️💫
+        </p>
+      </article>
+
+      <!-- Bottom Interactive Decision Area -->
+      <div class="mt-10 pt-7 border-t border-blush-200/70 flex flex-col items-center gap-4 text-center">
+        <p class="text-2xl sm:text-3xl font-bold text-stone-700">
+          Will you forgive your silly guy? 🥺
+        </p>
+
+        <!-- Button container with relative positioning for runaway mechanics -->
+        <div id="buttons-area" class="relative flex flex-wrap justify-center items-center gap-4 w-full min-h-[5.5rem] py-2">
+          
+          <!-- Choice 1: Forgiveness -->
+          <button id="forgive-btn" class="px-7 py-3 rounded-full bg-gradient-to-r from-blush-500 via-rose-500 to-blush-600 hover:from-blush-600 hover:to-rose-600 text-white font-bold text-2xl sm:text-3xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5 active:scale-95 flex items-center gap-2 cursor-pointer z-10">
+            <span>I forgive you, my clumsy honeybee ❤️</span>
+          </button>
+
+          <!-- Choice 2: Playful Runaway Button -->
+          <button id="runaway-btn" class="px-6 py-3 rounded-full bg-white/95 text-stone-600 border-2 border-blush-300 font-bold text-2xl sm:text-3xl shadow-md transition-transform duration-200 cursor-pointer z-10 select-none">
+            <span id="runaway-label">I'm still thinking about it 😤</span>
+          </button>
+
+        </div>
+
+        <!-- Feedback Message Toast -->
+        <div id="response-box" class="min-h-[3.5rem] flex items-center justify-center w-full transition-all duration-300">
+          <p id="response-text" class="text-2xl sm:text-3xl font-bold text-blush-700 py-3 px-8 rounded-full bg-blush-100/90 border border-blush-200 shadow-sm hidden"></p>
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Sweet Handwritten Footer -->
+  <footer class="mt-8 mb-4 text-center text-2xl sm:text-3xl text-blush-600 font-bold tracking-wide z-10">
+    Made with eternal love for my sweetest honeybee 🍯🐝✨
+  </footer>
+
+  <!-- Acoustic Piano Synthesizer & Autoplay Logic -->
+  <script>
+    class AcousticPiano {
+      constructor() {
+        this.ctx = null;
+        this.isPlaying = false;
+        this.timer = null;
+        this.step = 0;
+
+        // Rich, romantic chord arpeggios (Dmaj9 -> Bm11 -> Gmaj7 -> Aadd9)
+        this.chords = [
+          [146.83, 220.00, 277.18, 329.63, 369.99, 440.00, 554.37], // Dmaj9
+          [123.47, 185.00, 246.94, 293.66, 369.99, 440.00, 493.88], // Bm11
+          [98.00, 146.83, 196.00, 246.94, 293.66, 369.99, 440.00],  // Gmaj9
+          [110.00, 164.81, 220.00, 277.18, 329.63, 440.00, 554.37]  // Aadd9
+        ];
+      }
+
+      init() {
+        if (!this.ctx) {
+          const AudioContext = window.AudioContext || window.webkitAudioContext;
+          this.ctx = new AudioContext();
+        }
+      }
+
+      // Synthesizes a natural, warm acoustic piano note with felt hammer overtones
+      playPianoKey(freq, velocity = 0.12, duration = 4.2) {
+        if (!this.ctx) return;
+        const now = this.ctx.currentTime;
+
+        // Fundamental note (sine wave)
+        const fundamental = this.ctx.createOscillator();
+        fundamental.type = 'sine';
+        fundamental.frequency.setValueAtTime(freq, now);
+
+        // 2nd Harmonic (gentle overtone for piano string body)
+        const overtone1 = this.ctx.createOscillator();
+        overtone1.type = 'triangle';
+        overtone1.frequency.setValueAtTime(freq * 2, now);
+
+        // 3rd Harmonic (soft metallic shimmer)
+        const overtone2 = this.ctx.createOscillator();
+        overtone2.type = 'sine';
+        overtone2.frequency.setValueAtTime(freq * 3, now);
+
+        // Lowpass felt hammer filter
+        const filter = this.ctx.createBiquadFilter();
+        filter.type = 'lowpass';
+        // Filter envelope (bright acoustic transient then warm body)
+        filter.frequency.setValueAtTime(1400, now);
+        filter.frequency.exponentialRampToValueAtTime(380, now + 0.6);
+
+        // Note Amplitude Envelope (instant attack, natural piano decay)
+        const gainNode = this.ctx.createGain();
+        gainNode.gain.setValueAtTime(0, now);
+        gainNode.gain.linearRampToValueAtTime(velocity, now + 0.015);
+        gainNode.gain.exponentialRampToValueAtTime(velocity * 0.45, now + 0.4);
+        gainNode.gain.exponentialRampToValueAtTime(0.0001, now + duration);
+
+        // Subtle percussive hammer strike
+        const hammerBuffer = this.ctx.createBuffer(1, Math.floor(this.ctx.sampleRate * 0.02), this.ctx.sampleRate);
+        const data = hammerBuffer.getChannelData(0);
+        for (let i = 0; i < data.length; i++) {
+          data[i] = (Math.random() * 2 - 1) * Math.exp(-i / (data.length * 0.3));
+        }
+        const hammerNoise = this.ctx.createBufferSource();
+        hammerNoise.buffer = hammerBuffer;
+        const hammerGain = this.ctx.createGain();
+        hammerGain.gain.setValueAtTime(velocity * 0.25, now);
+        hammerGain.gain.exponentialRampToValueAtTime(0.001, now + 0.02);
+
+        // Connections
+        fundamental.connect(filter);
+        overtone1.connect(filter);
+        overtone2.connect(filter);
+        hammerNoise.connect(hammerGain);
+        hammerGain.connect(filter);
+
+        filter.connect(gainNode);
+        gainNode.connect(this.ctx.destination);
+
+        // Start & stop nodes
+        fundamental.start(now);
+        overtone1.start(now);
+        overtone2.start(now);
+        hammerNoise.start(now);
+
+        fundamental.stop(now + duration);
+        overtone1.stop(now + duration);
+        overtone2.stop(now + duration);
+        hammerNoise.stop(now + 0.03);
+      }
+
+      start() {
+        if (this.isPlaying) return;
+        this.init();
+        if (this.ctx.state === 'suspended') {
+          this.ctx.resume();
+        }
+        this.isPlaying = true;
+
+        let chordIndex = 0;
+        let notePattern = [0, 2, 4, 3, 5, 4, 6, 5];
+        let patternIdx = 0;
+
+        const playNextAcousticNote = () => {
+          if (!this.isPlaying) return;
+          
+          const currentChord = this.chords[chordIndex];
+          const noteFreq = currentChord[notePattern[patternIdx]];
+          
+          // Random soft velocity variation for human-like acoustic performance
+          const vel = (patternIdx === 0 ? 0.16 : 0.08 + Math.random() * 0.05);
+          this.playPianoKey(noteFreq, vel, 3.8);
+
+          patternIdx++;
+          if (patternIdx >= notePattern.length) {
+            patternIdx = 0;
+            chordIndex = (chordIndex + 1) % this.chords.length;
+          }
+
+          // Gentle lofi piano tempo (~950ms per arpeggio note)
+          this.timer = setTimeout(playNextAcousticNote, 950);
+        };
+
+        playNextAcousticNote();
+      }
+    }
+
+    const pianoAudio = new AcousticPiano();
+
+    // Autoplay trigger: attempt immediately, and unlock silently upon any user gesture
+    function unlockAndPlayAudio() {
+      if (!pianoAudio.isPlaying) {
+        pianoAudio.start();
+      }
+      // Clean up gesture listeners once audio successfully starts
+      if (pianoAudio.isPlaying && pianoAudio.ctx && pianoAudio.ctx.state === 'running') {
+        window.removeEventListener('click', unlockAndPlayAudio);
+        window.removeEventListener('touchstart', unlockAndPlayAudio);
+        window.removeEventListener('scroll', unlockAndPlayAudio);
+        window.removeEventListener('pointerdown', unlockAndPlayAudio);
+      }
+    }
+
+    window.addEventListener('load', () => {
+      unlockAndPlayAudio();
+    });
+
+    ['click', 'touchstart', 'scroll', 'pointerdown', 'keydown'].forEach(evt => {
+      window.addEventListener(evt, unlockAndPlayAudio, { passive: true });
+    });
+
+    // Runaway "I'm still thinking about it" button logic
+    const runawayBtn = document.getElementById('runaway-btn');
+    const runawayLabel = document.getElementById('runaway-label');
+    const forgiveBtn = document.getElementById('forgive-btn');
+    const buttonsArea = document.getElementById('buttons-area');
+
+    const playfulQuotes = [
+      "Oops! Can't click this 🤭",
+      "Nope, honeybees only forgive! 🐝",
+      "Try again 🥺",
+      "Destiny says forgive me 🤍",
+      "That button is broken! 🙈",
+      "Look to the left 💖"
+    ];
+
+    let dodgeCount = 0;
+
+    function dodgeRunawayButton(e) {
+      if (e) {
+        e.preventDefault();
+        e.stopPropagation();
+      }
+
+      unlockAndPlayAudio();
+
+      dodgeCount++;
+      runawayLabel.textContent = playfulQuotes[dodgeCount % playfulQuotes.length];
+
+      // Calculate safe random offset inside or around the area
+      const maxDistX = window.innerWidth < 640 ? 60 : 130;
+      const maxDistY = 50;
+
+      const randomX = (Math.random() - 0.5) * maxDistX * 2;
+      const randomY = (Math.random() - 0.5) * maxDistY * 2;
+      const randomRot = (Math.random() - 0.5) * 24;
+
+      runawayBtn.style.transform = `translate(${randomX}px, ${randomY}px) rotate(${randomRot}deg)`;
+
+      // Make the forgive button pulse invitingly
+      forgiveBtn.classList.add('scale-105');
+      setTimeout(() => forgiveBtn.classList.remove('scale-105'), 300);
+    }
+
+    // React on hover, mouse movement, and touch
+    runawayBtn.addEventListener('mouseenter', dodgeRunawayButton);
+    runawayBtn.addEventListener('touchstart', dodgeRunawayButton, { passive: false });
+    runawayBtn.addEventListener('click', dodgeRunawayButton);
+
+    // Forgive Button Celebration
+    const responseBox = document.getElementById('response-box');
+    const responseText = document.getElementById('response-text');
+
+    forgiveBtn.addEventListener('click', () => {
+      unlockAndPlayAudio();
+
+      // Hide runaway button and highlight forgiveness
+      runawayBtn.style.display = 'none';
+      forgiveBtn.classList.add('ring-4', 'ring-blush-300', 'scale-105');
+
+      responseText.textContent = "You are my entire universe. Thank you for forgiving me, my sweet honeybee 🐝🤍 I love you forever!";
+      responseText.classList.remove('hidden');
+
+      createMassiveCelebration(65);
+    });
+
+    // Background floating stickers/particles
+    const particleContainer = document.getElementById('particle-container');
+    const symbols = ['🐝', '🍓', '✨', '🤍', '🌸', '💖', '🐣', '🐈', '🧚‍♀️', '🍯'];
+
+    function createParticle() {
+      const p = document.createElement('div');
+      p.className = 'particle';
+      p.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+      
+      const size = Math.random() * 16 + 18;
+      const left = Math.random() * 95;
+      const duration = Math.random() * 6 + 9;
+      const driftX = (Math.random() - 0.5) * 120;
+      const rot = (Math.random() - 0.5) * 360;
+
+      p.style.fontSize = `${size}px`;
+      p.style.left = `${left}vw`;
+      p.style.animationDuration = `${duration}s`;
+      p.style.setProperty('--drift-x', `${driftX}px`);
+      p.style.setProperty('--rot', `${rot}deg`);
+
+      particleContainer.appendChild(p);
+
+      setTimeout(() => {
+        p.remove();
+      }, duration * 1000);
+    }
+
+    for (let i = 0; i < 18; i++) {
+      setTimeout(createParticle, i * 350);
+    }
+    setInterval(createParticle, 1200);
+
+    // Tap/Click Hearts & Sparkles
+    const clickEmojis = ['🤍', '💖', '🐝', '✨', '🍓', '🌸', '🧚‍♀️', '🍯'];
+
+    window.addEventListener('click', (e) => {
+      if (e.target.closest('button')) return;
+
+      const count = 6;
+      for (let i = 0; i < count; i++) {
+        const heart = document.createElement('div');
+        heart.className = 'click-heart';
+        heart.textContent = clickEmojis[Math.floor(Math.random() * clickEmojis.length)];
+        
+        const angle = (Math.PI * 2 * i) / count + (Math.random() - 0.5) * 0.4;
+        const distance = Math.random() * 80 + 40;
+        const tx = Math.cos(angle) * distance;
+        const ty = Math.sin(angle) * distance;
+        const tr = (Math.random() - 0.5) * 60;
+
+        heart.style.left = `${e.clientX}px`;
+        heart.style.top = `${e.clientY}px`;
+        heart.style.setProperty('--tx', `${tx}px`);
+        heart.style.setProperty('--ty', `${ty}px`);
+        heart.style.setProperty('--tr', `${tr}deg`);
+        heart.style.fontSize = `${Math.random() * 12 + 18}px`;
+
+        document.body.appendChild(heart);
+
+        setTimeout(() => heart.remove(), 1100);
+      }
+    });
+
+    // Massive celebration burst upon forgiveness
+    function createMassiveCelebration(amount = 60) {
+      const centerX = window.innerWidth / 2;
+      const centerY = window.innerHeight / 2;
+
+      for (let i = 0; i < amount; i++) {
+        setTimeout(() => {
+          const heart = document.createElement('div');
+          heart.className = 'click-heart';
+          heart.textContent = clickEmojis[Math.floor(Math.random() * clickEmojis.length)];
+          
+          const angle = Math.random() * Math.PI * 2;
+          const distance = Math.random() * 280 + 80;
+          const tx = Math.cos(angle) * distance;
+          const ty = Math.sin(angle) * distance;
+          const tr = (Math.random() - 0.5) * 140;
+
+          heart.style.left = `${centerX}px`;
+          heart.style.top = `${centerY}px`;
+          heart.style.setProperty('--tx', `${tx}px`);
+          heart.style.setProperty('--ty', `${ty}px`);
+          heart.style.setProperty('--tr', `${tr}deg`);
+          heart.style.fontSize = `${Math.random() * 16 + 22}px`;
+
+          document.body.appendChild(heart);
+          setTimeout(() => heart.remove(), 1200);
+        }, i * 25);
+      }
+    }
+  </script>
+</body>
+</html>
